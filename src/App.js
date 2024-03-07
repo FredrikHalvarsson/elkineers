@@ -1,13 +1,12 @@
 
 import './App.css';
-const Login = require("./components/Login")
+// const Login = require("./components/Login.js");
+import Login from "./components/Login.js"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Login/>
-      </header>
     </div>
   );
 }
