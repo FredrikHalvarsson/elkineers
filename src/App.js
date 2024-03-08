@@ -7,6 +7,7 @@ import Page5 from './Pages/page5.js';
 import Page3 from './Pages/page3.js';
 import TimeReports from './Pages/timeReports.js'; 
 import SideBar from './components/SideBar/SideBar.js';
+import Login from './components/Login.js'
 
 export default function App() {
   return (
@@ -14,6 +15,15 @@ export default function App() {
       <div>
       <header>
         <SideBar />
+        <clerk style={{
+            display: 'flex',
+            justifyContent: 'end',
+            alignItems: 'center',
+            margin: '15px'
+            
+            }}>
+          <Login/>
+        </clerk>
       </header>
       <main>
       <Routes>
