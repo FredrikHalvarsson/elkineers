@@ -23,36 +23,37 @@ const Sidebar = () => {
     });
 
     return (
-      <ThemeProvider theme={theme}>
-      <Drawer
-          sx={{
-              width: drawerWidth,
-              flexShrink: 0,
-              '& .MuiDrawer-paper': {
-                  width: drawerWidth,
-                  boxSizing: 'border-box',
-                  backgroundColor: 'rgba(127, 157, 157)',
-                  color: '#fff',
-              },
-          }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar />
-        <List>
-          {SidebarItems.map((item) => (
-            <ListItem key={item.id}>
-            <ListItemButton onClick={() => navigate(item.route)}>
-            <ListItemIcon>
-                  {item.icon}
-            </ListItemIcon>
-            <ListItemText primary={item.label} />
-            </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      </ThemeProvider>
+     
+        <ThemeProvider theme={theme}>
+        <Drawer
+            sx={{
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                    backgroundColor: 'rgba(127, 157, 157)',
+                    color: '#fff',
+                },
+            }}
+          variant="permanent"
+          anchor="left"
+        >
+          <Toolbar />
+          <List>
+            {SidebarItems.map((item) => (
+              <ListItem key={item.id}>
+              <ListItemButton onClick={() => navigate(item.route)}>
+              <ListItemIcon>
+                    {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.label} />
+              </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        </ThemeProvider>
     )
 
 }
