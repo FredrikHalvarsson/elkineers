@@ -9,20 +9,20 @@ export const SidebarItems = [
     {
         id: 0,
         icon: <HouseIcon />,
+        label: 'Home',
+        route: 'home',
+    },
+    {
+        id: 1,
+        icon: <AssignmentIcon />,
         label: 'Projects',
         route: 'projects',
     },
     {
-        id: 1,
+        id: 2,
         icon: <ArticleIcon />,
         label: 'Time reports',
         route: 'time-reports',
-    },
-    {
-        id: 2,
-        icon: <AssignmentIcon />,
-        label: 'Page3',
-        route: 'page3',
     },
     {
         id: 3,
