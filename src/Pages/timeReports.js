@@ -40,7 +40,7 @@ export default function TimeReports () {
     const fetchDataFromNotion = ()=>{
         const payload = {
         };
-        axios.post('http://localhost:3001/api/notion', payload)
+        axios.post('http://localhost:3001/notion/api/get/timereports', payload)
             .then(response => {
                 setData(response.data); 
                 console.log('Data hämtad från Notion:', response.data);
