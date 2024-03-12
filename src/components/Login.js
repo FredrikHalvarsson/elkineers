@@ -2,7 +2,7 @@ import React from 'react';
 import { ClerkProvider, SignedIn, SignedOut, UserButton, RedirectToSignIn, useAuth } from '@clerk/clerk-react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import GetUser from '../services/clerk/GetUser';
+import UserCookie from '../services/clerk/GetUser/UserCookie';
 
 const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 const serverUrl = process.env.REACT_APP_SERVER_URL;
@@ -47,7 +47,7 @@ function Login() {
           <SignedOut>
             <RedirectToSignIn />
           </SignedOut>
-        <GetUser/>
+        <UserCookie/>
       </div>
     </ClerkProvider>
   )
