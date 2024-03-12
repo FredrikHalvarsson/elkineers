@@ -84,19 +84,7 @@ export default function TimeReports () {
                     })}
                 </TableBody>
               </Table>
-            </TableContainer>  
-            <footer>
-                <p style={{
-                    textAlign: 'center',
-                    margin: '100px 0',
-                    backgroundColor: 'rgb(135, 135, 135)',
-                    paddingTop: '8px',
-                    paddingBottom: '8px',
-                    position: 'relative',
-                    bottom: '0',
-                    width: '100%',
-                }}>&copy; 2024 Elkineers. All rights reserved.</p>
-            </footer>          
+            </TableContainer>          
         </div>
     );
 }
