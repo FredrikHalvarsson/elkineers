@@ -7,24 +7,24 @@ import Page5 from './Pages/page5.js';
 import Home from './Pages/Home.js';
 import TimeReports from './Pages/timeReports.js'; 
 import SideBar from './components/SideBar/SideBar.js';
-import Login from './components/Login.js'
+import Login from './components/Login.js';
+import Footer from './components/Footer.js';
+import Header from './components/Header.js';
 
 export default function App() {
   return (
     <Router>
       <div>
-      <header>
         <SideBar />
         <clerk style={{
             display: 'flex',
             justifyContent: 'end',
             alignItems: 'center',
             margin: '15px'
-            
             }}>
           <Login/>
         </clerk>
-      </header>
+        <Header/>
       <main>
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -36,6 +36,7 @@ export default function App() {
       </Routes>
       </main>
       </div>
+      <Footer/>
     </Router>
   );
 }
