@@ -5,38 +5,31 @@ import Projects from './Pages/projects';
 import Page4 from './Pages/page4.js';
 import Page5 from './Pages/page5.js';
 import Home from './Pages/Home.js';
-import TimeReports from './Pages/timeReports.js'; 
+import Timereports from './Pages/Timereports.js';
 import SideBar from './components/SideBar/SideBar.js';
-import Login from './components/Login.js';
-import Footer from './components/Footer.js';
-import Header from './components/Header.js';
+import Footer from './components/Footer/Footer.js';
+import Header from './components/Header/Header.js';
 
 export default function App() {
   return (
     <Router>
       <div>
+      <Header/>
+      <aside>
         <SideBar />
-        <clerk style={{
-            display: 'flex',
-            justifyContent: 'end',
-            alignItems: 'center',
-            margin: '15px'
-            }}>
-          <Login/>
-        </clerk>
-        <Header/>
+      </aside>
       <main>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="home" element={<Home/>} />
         <Route path="projects" element={<Projects/>} />
-        <Route path="time-reports" element={<TimeReports/>} />
+        <Route path="time-reports" element={<Timereports/>} />
         <Route path="page4" element={<Page4/>} />
         <Route path="page5" element={<Page5/>} />
       </Routes>
       </main>
-      </div>
       <Footer/>
+      </div>
     </Router>
   );
 }
