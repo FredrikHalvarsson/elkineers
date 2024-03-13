@@ -1,5 +1,5 @@
 import axios from 'axios';
-export default async function saveToNotion(data) {
+export default async function SaveToNotion(data) {
 
     await axios.post('http://localhost:3001/notion/api/post/timereports', {
         headers: {

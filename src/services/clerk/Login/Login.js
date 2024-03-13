@@ -2,7 +2,7 @@ import React from 'react';
 import { ClerkProvider, SignedIn, SignedOut, UserButton, RedirectToSignIn, useAuth } from '@clerk/clerk-react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import UserCookie from '../services/clerk/GetUser/UserCookie';
+import UserCookie from '../GetUser/UserCookie';
 
 const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 const serverUrl = process.env.REACT_APP_SERVER_URL;
@@ -39,7 +39,8 @@ const Dashboard = () => {
 function Login() {
   return (
     <ClerkProvider publishableKey={clerkPubKey}>
-      <div className="App">
+      <div className="App" style={{display: 'flex'}}>
+        <UserCookie/>
         
           <SignedIn>
             <Dashboard />
@@ -47,7 +48,6 @@ function Login() {
           <SignedOut>
             <RedirectToSignIn />
           </SignedOut>
-        <UserCookie/>
       </div>
     </ClerkProvider>
   )

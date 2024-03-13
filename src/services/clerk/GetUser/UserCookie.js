@@ -12,7 +12,7 @@ export default function UserCookie() {
     if (isSignedIn) {
       setCookie('fullName', user.fullName, { path: '/'})
       setCookie('primaryEmail', user.primaryEmailAddress.toString(), {path: '/'})
-      return <div>Hello {user.firstName}!</div>;
+      return <div style={{marginRight: '10px'}}>Hello {user.firstName}!</div>;
     }
     return <div>Not signed in</div>;
 }
