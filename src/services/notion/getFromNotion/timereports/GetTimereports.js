@@ -68,7 +68,8 @@ export default function GetTimereports () {
                     <StyledTableCell>Person</StyledTableCell>
                     <StyledTableCell >Project</StyledTableCell>
                     <StyledTableCell >#Hours</StyledTableCell>
-                    <StyledTableCell >Date</StyledTableCell>   
+                    <StyledTableCell >Date</StyledTableCell> 
+                    <StyledTableCell >Note</StyledTableCell> 
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -79,6 +80,7 @@ export default function GetTimereports () {
                       <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
                       <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
                       <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
+                      <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
                     </StyledTableRow>
                     );
                     })}
