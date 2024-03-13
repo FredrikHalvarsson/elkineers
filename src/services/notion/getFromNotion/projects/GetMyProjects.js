@@ -11,6 +11,7 @@ import {
     Paper
   } from '@mui/material';
 import GetUser from '../../../clerk/GetUser/GetUser';
+import GetData from './GetData';
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -34,30 +35,13 @@ import GetUser from '../../../clerk/GetUser/GetUser';
     
     const GetAllProjects = () =>{ 
  
-     const [data, setData] = useState(null); 
+     const data = GetData('projects');
 
-     const fetchDataFromNotion = ()=>{
-         const payload = {
-         };
-         axios.post('http://localhost:3001/notion/api/get/projects', payload)
-             .then(response => {
-                 setData(response.data); 
-                 console.log('Data hämtad från Notion:', response.data);
-             })
-             .catch(error => {  
-                 console.error('Fel vid hämtning från Notion:', error);
-             });
-     };      
-          
-          useEffect(() => {
-            fetchDataFromNotion();
-          }, []);
-          
-          if(!data || !Array.isArray(data?.results)) {
-            return <p>Laddar data eller ingen data att visa...</p>
-          }
-          
-          const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))
+     if(!data || !Array.isArray(data?.results)) {
+      return <p>Laddar data eller ingen data att visa...</p>
+      }
+      
+      const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))
           
     return(
         <div className='container'>
