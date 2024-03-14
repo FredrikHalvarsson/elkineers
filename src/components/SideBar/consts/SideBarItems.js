@@ -15,7 +15,7 @@ export const SidebarItems = [
     {
         id: 1,
         icon: <AssignmentIcon />,
-        label: 'Projects',
+        label: 'All projects',
         route: 'projects',
     },
     {
@@ -27,14 +27,14 @@ export const SidebarItems = [
     {
         id: 3,
         icon: <AssignmentIndIcon/>,
-        label: 'Page4',
-        route: 'page4',
+        label: 'All active projects',
+        route: 'active-projects',
     },
     {
         id: 4,
         icon: <CalendarMonthIcon />,
-        label: 'Page5',
-        route: 'page5',
+        label: 'My projects dashboard',
+        route: 'user-projects',
     },
     
 ];
