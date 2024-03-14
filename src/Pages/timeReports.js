@@ -11,3 +11,4 @@ export default function Timereports() {
         </div>
     );
 }
+// this should be named timereports with no capittal letters
