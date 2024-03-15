@@ -5,7 +5,7 @@ import Projects from './Pages/projects';
 import Page4 from './Pages/page4.js';
 import Page5 from './Pages/page5.js';
 import Home from './Pages/Home.js';
-import Timereports from './Pages/timereports.js';
+import Timereports from './Pages/timeReports.js';
 import SideBar from './components/SideBar/SideBar.js';
 import Footer from './components/Footer/Footer.js';
 import Header from './components/Header/Header.js';

@@ -1,14 +1,20 @@
 import saveToNotion from "../saveToNotion";
-export const notionForm = document.getElementById('notionForm');
+const notionForm = document.getElementById('notionForm');
 
-    notionForm.addEventListener('submit', async function (event) {
-        event.preventDefault();
+// Add event listener for form submission
+notionForm.addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
 
-        //fyll med element som ska skickas till databasen
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+    // Get values from form fields
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
 
-        await saveToNotion(name, email);
-    });
+    // Log values (optional)
+    console.log(name, email);
 
-    //importera till formulär
+    // Log that it's submitting to Notion (optional)
+    console.log('reached function call to save to notion');
+
+    // Call the saveToNotion function with name and email
+    await saveToNotion(name, email);
+});
