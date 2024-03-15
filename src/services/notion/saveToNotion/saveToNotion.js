@@ -1,18 +1,20 @@
 import axios from 'axios';
-export default async function SaveToNotion(data) {
 
-    await axios.post('http://localhost:3001/notion/api/post/timereports', {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    })
-    .catch(error => {
+export default async function saveToNotion(name) {
+    try {
+        const response = await axios.post(
+            'http://localhost:3001/notion/api/post/people', 
+            {body: JSON.stringify({ name })},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Notion-Version': '2022-06-28'
+                }
+            }
+        );
+        alert(response.data.message);
+    } catch (error) {
         console.error('Error:', error);
         alert('Failed to save data to Notion.');
-    });
+    }
 }
