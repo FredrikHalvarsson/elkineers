@@ -40,12 +40,15 @@ import GetData from './GetData';
      if(!data || !Array.isArray(data?.results)) {
       return <p>Laddar data eller ingen data att visa...</p>
       }
+      
+      const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active') && item.properties.RollupPeople.rollup.array.title?.plain_text.includes(user.userName)); 
+      
+      // const filter = data.results.filter(item => item.properties.RollupPeople.rollup.title?.plain_text.includes(user.userName));
+      // const filter2 = data.results.filter(item => item.properties.Status.select?.name.includes('Active'));
 
-      const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active') && item.properties.RollupPeople.rollup.array.some(titleItem => titleItem && titleItem.plain_text && titleItem.plain_text.includes(user.userName)));    
-    
       return(
         <div className='container'>
-            <h1> </h1>
+            <h1></h1>
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
@@ -62,8 +65,7 @@ import GetData from './GetData';
                 {filter.map((page, index)=>{
                   return (
                     <StyledTableRow key={index}>
-                                <StyledTableCell>{user.properties.RollupPeople.rollup.array.title.plain_text.userName ?? ' - '}</StyledTableCell>
-                                <StyledTableCell>{user.properties.RollupPeople.rollup.array.title.plain_text.userEmail ?? ' - '}</StyledTableCell>
+                                <StyledTableCell>{page.properties.RollupPeople.rollup.array[0].title[0].plain_text.userName ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties.Status.select?.name ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
