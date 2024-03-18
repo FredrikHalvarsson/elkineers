@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCookies } from "react-cookie";
+
+
 
 function GetUser() {
     const [cookies, setCookie] = useCookies(['fullName', 'primaryEmail']);
     const name = cookies.fullName;
     const email = cookies.primaryEmail;
+    
     const user=[
         {
         userName: name,
-        userEmail: email
+        userEmail: email,
         }
     ];
     return user
