@@ -36,5 +36,11 @@ export const SidebarItems = [
         label: 'My projects dashboard',
         route: 'user-projects',
     },
+    {
+        id: 4,
+        icon: <ArticleIcon />,
+        label: 'send-demo',
+        route: 'page5copy',
+    },
     
 ];
