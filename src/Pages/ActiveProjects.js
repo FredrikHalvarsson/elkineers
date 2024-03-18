@@ -1,5 +1,5 @@
 import React from 'react';
-import GetMyProjects from '../services/notion/getFromNotion/projects/GetMyProjects'
+import GetMyProjects from '../services/notion/getFromNotion/projects/GetActiveProjects'
 
 export default function Page4 () {
     return (
