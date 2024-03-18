@@ -5,6 +5,7 @@ import Projects from './Pages/projects';
 import ActiveProjects from './Pages/ActiveProjects.js';
 import UserProjects from './Pages/UserProjects.js';
 import Home from './Pages/Home.js';
+import Page5 from './Pages/page5copy.js';
 import Timereports from './Pages/timereports.js';
 import SideBar from './components/SideBar/SideBar.js';
 import Footer from './components/Footer/Footer.js';
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="time-reports" element={<Timereports/>} />
         <Route path="active-projects" element={<ActiveProjects/>} />
         <Route path="user-projects" element={<UserProjects/>} />
+        <Route path="page5copy" element={<Page5/>} />
       </Routes>
       </main>
       <Footer/>
