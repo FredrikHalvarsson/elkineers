@@ -8,13 +8,10 @@ function GetUser() {
     const name = cookies.fullName;
     const email = cookies.primaryEmail;
     
-    const user=[
-        {
+    return {
         userName: name,
         userEmail: email,
         }
-    ];
-    return user
 }
 
 export default GetUser

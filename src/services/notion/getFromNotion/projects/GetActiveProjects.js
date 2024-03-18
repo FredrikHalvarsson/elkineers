@@ -33,7 +33,7 @@ import GetData from './GetData';
   }));
 
     
-    const GetAllProjects = () =>{ 
+    const GetActiveProjects = () =>{ 
  
      const data = GetData('projects');
 
@@ -78,4 +78,4 @@ import GetData from './GetData';
      );
 };
 
-export default GetAllProjects;
+export default GetActiveProjects;

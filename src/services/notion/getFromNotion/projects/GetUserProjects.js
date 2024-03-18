@@ -12,6 +12,7 @@ import {
   } from '@mui/material';
 import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from './GetData';
+import GetId from '../../../clerk/GetUser/GetId';
   
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -32,8 +33,9 @@ import GetData from './GetData';
     },
   }));
 
-    const GetUserProjects = () =>{ 
- 
+    const GetUserProjects = () =>{
+    const userId = GetId();
+    console.log('userId:' + userId)
      const data = GetData('projects');
      const user = GetUser();
 
