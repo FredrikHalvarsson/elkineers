@@ -35,7 +35,7 @@ import GetId from '../../../clerk/GetUser/GetId';
 
     const GetUserProjects = () =>{
     const userId = GetId();
-    console.log('userId:' + id)
+    console.log('userId:' + userId)
      const data = GetData('projects');
      const user = GetUser();
 
