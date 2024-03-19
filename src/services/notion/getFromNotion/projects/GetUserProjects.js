@@ -62,7 +62,6 @@ import GetId from '../../../clerk/GetUser/GetId';
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Project</StyledTableCell>
-                    <StyledTableCell >Status</StyledTableCell>
                     <StyledTableCell >#Hours</StyledTableCell>
                     <StyledTableCell >Worked hours</StyledTableCell> 
                     <StyledTableCell >Hours left</StyledTableCell>
@@ -73,9 +72,7 @@ import GetId from '../../../clerk/GetUser/GetId';
                 {filter.map((page, index)=>{
                   return (
                     <StyledTableRow key={index}>
-                                <StyledTableCell>{page.properties.RollupPeople.rollup.array[0].title[0].plain_text.userName ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
-                                <StyledTableCell>{page.properties.Status.select?.name ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
                                 <StyledTableCell>{page.properties["Worked hours"].rollup?.number ?? ' - '}</StyledTableCell>  
                                 <StyledTableCell>{page.properties["Hours left"].formula?.number ?? ' - '}</StyledTableCell> 
