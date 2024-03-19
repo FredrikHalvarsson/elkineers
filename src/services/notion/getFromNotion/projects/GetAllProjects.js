@@ -57,10 +57,9 @@ import {
      }
 
     return(
-        <div className='container'>
-            <h1> </h1>
+        <div className='container' style={{marginLeft: '145px', marginTop: '20px', marginBottom: '100px'}}>
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <Table sx={{ minWidth: 400 }} aria-label="customized table">
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Project</StyledTableCell>

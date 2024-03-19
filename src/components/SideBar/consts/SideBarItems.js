@@ -15,7 +15,7 @@ export const SidebarItems = [
     {
         id: 1,
         icon: <AssignmentIcon />,
-        label: 'All projects',
+        label: 'Projects',
         route: 'projects',
     },
     {

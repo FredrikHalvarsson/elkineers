@@ -76,7 +76,7 @@ export default function GetTimereports () {
                   {data.results.map((page, index) => {
                   return (
                     <StyledTableRow key={index}>
-                      <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'Ingen titel'}</StyledTableCell>
+                      <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
                       <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
                       <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
                       <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
