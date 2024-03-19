@@ -35,7 +35,6 @@ import GetId from '../../../clerk/GetUser/GetId';
 
     const GetUserProjects = () =>{
     const userId = GetId();
-    console.log('userId:' + userId)
      const data = GetData('projects');
      const user = GetUser();
 
@@ -43,10 +42,17 @@ import GetId from '../../../clerk/GetUser/GetId';
       return <p>Laddar data eller ingen data att visa...</p>
       }
       
-      const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active') && item.properties.RollupPeople.rollup.array.title?.plain_text.includes(user.userName)); 
+      const filter = data.results.filter(item => {
+        const isActive = item.properties.Status.select?.name.includes('Active');
+        if (!isActive) {
+          console.log('Skipped due to status');
+          return false;
+        }
+        const foundUser = item.properties.People.relation.find(item2 => item2.id.includes(userId));
+        console.log('Found User:', foundUser);
       
-      // const filter = data.results.filter(item => item.properties.RollupPeople.rollup.title?.plain_text.includes(user.userName));
-      // const filter2 = data.results.filter(item => item.properties.Status.select?.name.includes('Active'));
+        return foundUser;
+      });
 
       return(
         <div className='container'>
