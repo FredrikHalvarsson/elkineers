@@ -2,11 +2,6 @@ import React from 'react';
 import GetId from '../services/clerk/GetUser/GetId';
 
 export default function Page3 () {
-    let id = null
-    if (!id){
-        id = GetId()
-    }
-    console.log('userID: '+ id)
     return (
         <div>
             <main style={{
