@@ -44,10 +44,10 @@ import GetData from './GetData';
       const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))
           
     return(
-        <div className='container'>
+        <div className='container' style={{marginTop: '20px', marginLeft: '145px', marginBottom: '100px'}}>
             <h1> </h1>
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <Table sx={{ minWidth: 400 }} aria-label="customized table">
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Project</StyledTableCell>
