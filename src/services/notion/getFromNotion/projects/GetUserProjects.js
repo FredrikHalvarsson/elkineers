@@ -33,8 +33,8 @@ import GetId from '../../../clerk/GetUser/GetId';
     },
   }));
 
-    const GetUserProjects = () =>{
-    const userId = GetId();
+     const GetUserProjects = () =>{
+     const userId = GetId();
      const data = GetData('projects');
      const user = GetUser();
 
