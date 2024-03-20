@@ -7,7 +7,9 @@ import TabList from '@mui/joy/TabList';
 import { TabPanel } from '@mui/joy';
 import Tab, { tabClasses } from '@mui/joy/Tab';
 import { Typography, Stack,} from '@mui/material';
-
+import FolderSharedTwoToneIcon from '@mui/icons-material/FolderSharedTwoTone';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 
 export default function Projects() {
     return (
@@ -19,11 +21,12 @@ export default function Projects() {
             
         }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center', }} spacing="10px" direction="row" marginTop="-50px">
-        <img
+        {/* <img
           src="https://purecodestorageprod.blob.core.windows.net/images-svg/WorkspaceSetting1_b124193e-6efe-4644-a2b8-357599b30419.svg"
           width="35px"
           height="35px"
-        />
+        /> */}
+            <AssignmentOutlinedIcon sx={{fontSize: 50 }} />
         <Typography
           variant="h3"
           sx={{ ' @media(max-width:479px)': { fontSize: '14px' } }}>
@@ -36,12 +39,12 @@ export default function Projects() {
             sx={{
             alignItems: 'center', 
             justifyContent: 'center',
-            p: 0.5,
+            paddingTop: 0.5,
             gap: 0.5,
             borderRadius: '10px 10px 0px 0px',
             bgcolor: 'background.level3',
             [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                boxShadow: 'sm',
+                // boxShadow: 'sm',
                 bgcolor: 'background.surface',
             },
             }}

@@ -46,12 +46,6 @@ export default function ReportTime() {
           }}>
           Create new TimeReport
         </Typography>
-        <img
-          src="https://purecodestorageprod.blob.core.windows.net/images-svg/CreateRemainder_176087a9-7e3a-43d6-b1d0-bdb3fc35281d.svg"
-          style={{ flexShrink: '0' }}
-          width="10px"
-          height="10px"
-        />
       </Stack>
       <Stack sx={{ alignItems: 'flex-start', width: '100%' }} spacing="10px">
         <InputLabel
