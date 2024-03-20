@@ -66,41 +66,40 @@ export default function GetTimereports () {
   if (error || !Array.isArray(data?.results)) {
     return <p>Ett fel uppstod vid hämtning av data från Notion.</p>;
   }
-  }
   const sorted = data.results.sort((a, b) => {
-    const dateA = new Date(a.properties.Date.date.start);
-    const dateB = new Date(b.properties.Date.date.start);
-    return dateB - dateA;
-  })
+      const dateA = new Date(a.properties.Date.date.start);
+      const dateB = new Date(b.properties.Date.date.start);
+      return dateB - dateA;
+    })
   return (
-          
-              <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 400 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>Person</StyledTableCell>
-                  <StyledTableCell >Project</StyledTableCell>
-                  <StyledTableCell >#Hours</StyledTableCell>
-                  <StyledTableCell >Date</StyledTableCell> 
-                  <StyledTableCell >Note</StyledTableCell> 
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {sorted.map((page, index) => {
-                return (
-                  <StyledTableRow key={index}>
-                    <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
-                    <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
-                    <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
-                    <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
-                    <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
-                  </StyledTableRow>
-                  );
-                  })}
-              </TableBody>
-            </Table>
-          </TableContainer>          
-      </div>
-  );
+        
+    <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Person</StyledTableCell>
+              <StyledTableCell >Project</StyledTableCell>
+              <StyledTableCell >#Hours</StyledTableCell>
+              <StyledTableCell >Date</StyledTableCell> 
+              <StyledTableCell >Note</StyledTableCell> 
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {sorted.map((page, index) => {
+            return (
+              <StyledTableRow key={index}>
+                <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
+                <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
+              </StyledTableRow>
+              );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>          
+    </div>
+);
 }
