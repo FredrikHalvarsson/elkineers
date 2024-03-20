@@ -5,8 +5,7 @@ import Tab, { tabClasses } from '@mui/joy/Tab';
 import { Typography, Stack,} from '@mui/material';
 import Tabs from '@mui/joy/Tabs';
 import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
-
-
+import GetUserTimeReports from '../services/notion/getFromNotion/timereports/GetUserTimeReports';
 import GetTimereports from '../services/notion/getFromNotion/timereports/GetTimereports';
 import ReportTime from '../components/Modals/TimeReportMD/ReportTime';
 
@@ -39,18 +38,18 @@ export default function Timereports() {
                         // boxShadow: 'sm',
                         bgcolor: 'background.surface',
                     },}}>
-                    <Tab disableIndicator>All</Tab>
-                    <Tab disableIndicator>My</Tab>
-                    <Tab disableIndicator>Create</Tab>
+                    <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>All</Tab>
+                    <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>My</Tab>
+                    <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>Create</Tab>
                 </TabList>
-                <TabPanel value={0} >       
+                <TabPanel value={0}>       
                     <div>
                         <GetTimereports />
                     </div>
                 </TabPanel>
                 <TabPanel value={1}>
                     <div>
-                        <p>My time reports</p>
+                        <GetUserTimeReports />
                     </div>
                 </TabPanel>
                 <TabPanel value={2}>
