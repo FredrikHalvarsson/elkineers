@@ -57,6 +57,11 @@ export default function GetTimereports () {
     if(!data || !Array.isArray(data?.results)) {
         return <p>Laddar data eller ingen data att visa...</p>
     }
+    const sorted = data.results.sort((a, b) => {
+      const dateA = new Date(a.properties.Date.date.start);
+      const dateB = new Date(b.properties.Date.date.start);
+      return dateB - dateA;
+    })
 
     return (
             
@@ -73,7 +78,7 @@ export default function GetTimereports () {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {data.results.map((page, index) => {
+                  {sorted.map((page, index) => {
                   return (
                     <StyledTableRow key={index}>
                       <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
