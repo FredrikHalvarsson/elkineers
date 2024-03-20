@@ -4,6 +4,8 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import ArticleIcon from '@mui/icons-material/Article';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import HouseIcon from '@mui/icons-material/House';
+import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
+
 
 export const SidebarItems = [
     {
@@ -20,7 +22,7 @@ export const SidebarItems = [
     },
     {
         id: 2,
-        icon: <ArticleIcon />,
+        icon: <PendingActionsOutlinedIcon />,
         label: 'Time reports',
         route: 'time-reports',
     },

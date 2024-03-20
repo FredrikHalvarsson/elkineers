@@ -60,9 +60,9 @@ export default function GetTimereports () {
 
     return (
             
-               <div className='container'>
+               <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <Table sx={{ minWidth: 400 }} aria-label="customized table">
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Person</StyledTableCell>
