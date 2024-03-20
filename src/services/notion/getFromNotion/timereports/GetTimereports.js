@@ -39,6 +39,7 @@ export default function GetTimereports () {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
+
   const fetchDataFromNotion = ()=>{
       const payload = {
       };
@@ -65,7 +66,12 @@ export default function GetTimereports () {
   if (error || !Array.isArray(data?.results)) {
     return <p>Ett fel uppstod vid hämtning av data från Notion.</p>;
   }
-
+  }
+  const sorted = data.results.sort((a, b) => {
+    const dateA = new Date(a.properties.Date.date.start);
+    const dateB = new Date(b.properties.Date.date.start);
+    return dateB - dateA;
+  })
   return (
           
               <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
@@ -81,7 +87,7 @@ export default function GetTimereports () {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.results.map((page, index) => {
+                {sorted.map((page, index) => {
                 return (
                   <StyledTableRow key={index}>
                     <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
