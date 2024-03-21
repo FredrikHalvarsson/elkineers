@@ -29,14 +29,14 @@ export const SidebarItems = [
     {
         id: 3,
         icon: <AssignmentIndIcon/>,
-        label: 'All active projects',
-        route: 'active-projects',
+        label: 'Page 4',
+        route: 'page4',
     },
     {
         id: 4,
         icon: <CalendarMonthIcon />,
-        label: 'My projects dashboard',
-        route: 'user-projects',
+        label: 'Page 5',
+        route: 'page-5',
     },
     {
         id: 4,

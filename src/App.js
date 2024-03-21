@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Projects from './Pages/projects';
-import ActiveProjects from './Pages/ActiveProjects.js';
-import UserProjects from './Pages/UserProjects.js';
+import Page4 from './Pages/Page4.js';
+import UserProjects from './Pages/Page5.js';
 import Home from './Pages/Home.js';
 import Page5 from './Pages/page5copy.js';
 import Timereports from './Pages/timereports.js';
@@ -25,8 +25,8 @@ export default function App() {
         <Route path="home" element={<Home/>} />
         <Route path="projects" element={<Projects/>} />
         <Route path="time-reports" element={<Timereports/>} />
-        <Route path="active-projects" element={<ActiveProjects/>} />
-        <Route path="user-projects" element={<UserProjects/>} />
+        <Route path="page4" element={<Page4/>} />
+        <Route path="page-5" element={<Page5/>} />
         <Route path="page5copy" element={<Page5/>} />
       </Routes>
       </main>
