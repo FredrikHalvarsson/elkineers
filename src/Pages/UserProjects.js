@@ -6,9 +6,8 @@ export default function Page5 () {
         <div style={{
             minHeight: '100vh',
         }}>
-            <GetUserProjects/>
     </div>
     )
 }
 
-// Test comment
+
