@@ -36,57 +36,59 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 const GetUserTimeReports = () =>{
-    const userId = GetId();
-    const data = GetData('timereports');
-    const user = GetUser();
+  const userId = GetId();
+  const data = GetData('timereports');
+  console.log('data: '+data)
+  console.log('userID: ' +userId)
 
-    if(!data || !Array.isArray(data?.results)) {
-     return <p>Laddar data eller ingen data att visa...</p>
-    }
-     
-    const filtered = data.results.filter(item => {
-      const foundUser = item.properties.Person.relation.find(item2 => item2.id.includes(userId));
-      console.log('Found User:', foundUser);
-     
-      return foundUser;
-    });
+  if(!data || !Array.isArray(data?.results)) {
+    return <p>Laddar data eller ingen data att visa...</p>
+  }
+    
+  const filtered = data.results.filter(item => {
+    const foundUser = item.properties.Person.relation.find(item => item.id.includes(userId));
+    console.log('Found User:', foundUser);
+    
+    return foundUser;
+  });
+  console.log('filtered: '+filtered)
 
-    const sorted = filtered.sort((a, b) => {
-      const dateA = new Date(a.properties.Date.date.start);
-      const dateB = new Date(b.properties.Date.date.start);
-      return dateB - dateA;
-    });
+  const sorted = filtered.sort((a, b) => {
+    const dateA = new Date(a.properties.Date.date.start);
+    const dateB = new Date(b.properties.Date.date.start);
+    return dateB - dateA;
+  });
+  console.log('sorted: '+sorted)
 
-    return(
-      <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>Person</StyledTableCell>
-                <StyledTableCell >Project</StyledTableCell>
-                <StyledTableCell >#Hours</StyledTableCell>
-                <StyledTableCell >Date</StyledTableCell> 
-                <StyledTableCell >Note</StyledTableCell> 
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {sorted.map((page, index) => {
-              return (
-                <StyledTableRow key={index}>
-                  <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
-                  <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
-                  <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
-                  <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
-                  <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
-                </StyledTableRow>
-                );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>          
-      </div>
-    ); 
-
+  return(
+    <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Person</StyledTableCell>
+              <StyledTableCell >Project</StyledTableCell>
+              <StyledTableCell >#Hours</StyledTableCell>
+              <StyledTableCell >Date</StyledTableCell> 
+              <StyledTableCell >Note</StyledTableCell> 
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {sorted.map((page, index) => {
+            return (
+              <StyledTableRow key={index}>
+                <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
+                <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
+                <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
+              </StyledTableRow>
+              );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>          
+    </div>
+  );
 };     
 export default GetUserTimeReports;
