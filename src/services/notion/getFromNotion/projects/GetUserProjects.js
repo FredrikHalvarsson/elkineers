@@ -34,60 +34,59 @@ import GetId from '../../../clerk/GetUser/GetId';
     },
   }));
 
-     const GetUserProjects = () =>{
-     const userId = GetId();
-     const data = GetData('projects');
-     const user = GetUser();
+const GetUserProjects = () =>{
+  //get user id from cookie
+  const userId = GetId();
+  //get data from 'projects'database
+  const data = GetData('projects');
 
-     if(!data || !Array.isArray(data?.results)) {
-      return <p>Laddar data eller ingen data att visa...</p>
-      }
-      
-      const filter = data.results.filter(item => {
-        const isActive = item.properties.Status.select?.name.includes('Active');
-        if (!isActive) {
-          console.log('Skipped due to status');
-          return false;
-        }
-        const foundUser = item.properties.People.relation.find(item2 => item2.id.includes(userId));
-        console.log('Found User:', foundUser);
-      
-        return foundUser;
-      });
-
-      return(
-        <div className='container' style={{marginTop: '20px', marginLeft: '145px', marginBottom: '100px'}}>
-            <h1></h1>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 400 }} aria-label="customized table">
-                <TableHead>
-                  <TableRow>
-                    <StyledTableCell>Project</StyledTableCell>
-                    <StyledTableCell >#Hours</StyledTableCell>
-                    <StyledTableCell >Worked hours</StyledTableCell> 
-                    <StyledTableCell >Hours left</StyledTableCell>
-                    <StyledTableCell>Progress bar</StyledTableCell>
-                    <StyledTableCell >Timespan</StyledTableCell>  
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                {filter.map((page, index)=>{
-                  return (
-                    <StyledTableRow key={index}>
-                                <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
-                                <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
-                                <StyledTableCell>{page.properties["Worked hours"].rollup?.number ?? ' - '}</StyledTableCell>  
-                                <StyledTableCell>{page.properties["Hours left"].formula?.number ?? ' - '}</StyledTableCell> 
-                                <StyledTableCell><ProgressBar hours={page.properties.Hours.number} workedHours={page.properties["Worked hours"].rollup?.number}/></StyledTableCell>
-                                <StyledTableCell>{page.properties.Timespan.date?.start ?? ' - '} - {page.properties.Timespan.date?.end ?? ' - '}</StyledTableCell> 
-                                </StyledTableRow>
-                    );
-                    })}
-                </TableBody>
-              </Table>
-            </TableContainer>            
-        </div>
-     );
+  if(!data || !Array.isArray(data?.results)) {
+  return <p>Laddar data eller ingen data att visa...</p>
+  }
+  const filter = data.results.filter(item => {
+    const isActive = item.properties.Status.select?.name.includes('Active');
+    if (!isActive) {
+      console.log('Skipped due to status');
+      return false;
+    }
+    const foundUser = item.properties.People.relation.find(item2 => item2.id.includes(userId));
+    console.log('Found User:', foundUser);
+  
+    return foundUser;
+  });
+  return(
+    <div className='container' style={{marginTop: '20px', marginLeft: '145px', marginBottom: '100px'}}>
+        <h1></h1>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Project</StyledTableCell>
+                <StyledTableCell >#Hours</StyledTableCell>
+                <StyledTableCell >Worked hours</StyledTableCell> 
+                <StyledTableCell >Hours left</StyledTableCell>
+                <StyledTableCell>Progress bar</StyledTableCell>
+                <StyledTableCell >Timespan</StyledTableCell>  
+              </TableRow>
+            </TableHead>
+            <TableBody>
+            {filter.map((page, index)=>{
+              return (
+                <StyledTableRow key={index}>
+                            <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
+                            <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
+                            <StyledTableCell>{page.properties["Worked hours"].rollup?.number ?? ' - '}</StyledTableCell>  
+                            <StyledTableCell>{page.properties["Hours left"].formula?.number ?? ' - '}</StyledTableCell> 
+                            <StyledTableCell><ProgressBar hours={page.properties.Hours.number} workedHours={page.properties["Worked hours"].rollup?.number}/></StyledTableCell>
+                            <StyledTableCell>{page.properties.Timespan.date?.start ?? ' - '} - {page.properties.Timespan.date?.end ?? ' - '}</StyledTableCell> 
+                            </StyledTableRow>
+                );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>            
+    </div>
+  );
 };
 
 export default GetUserProjects;

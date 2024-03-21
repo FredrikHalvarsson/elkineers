@@ -3,6 +3,7 @@ import axios from 'axios';
 import './timereports.css';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import GetData from '../projects/GetData';
 import {
     Table,
     TableBody,
@@ -32,39 +33,13 @@ import {
     },
   }));
 
-
 export default function GetTimereports () {
+  //get data from timereports database
+  const data = GetData('timereports');
+  console.log('data: '+data)
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
-
-
-  const fetchDataFromNotion = ()=>{
-      const payload = {
-      };
-      axios.get('http://localhost:3001/notion/api/get/timereports', payload)
-          .then(response => {
-              setData(response.data);
-              setLoading(false); 
-              console.log('Data hämtad från Notion:', response.data);
-          })
-          .catch(error => {
-              setError(error);
-              setLoading(false);
-              console.error('Fel vid hämtning från Notion:', error);
-          });
-  };            
-  
-  useEffect(() => {
-  fetchDataFromNotion();
-  }, []);
-  
-  if (loading) {
-    return <p>Laddar data...</p>;
-  }
-  if (error || !Array.isArray(data?.results)) {
-    return <p>Ett fel uppstod vid hämtning av data från Notion.</p>;
+  if(!data || !Array.isArray(data?.results)) {
+    return <p>Laddar data eller ingen data att visa...</p>
   }
   const sorted = data.results.sort((a, b) => {
       const dateA = new Date(a.properties.Date.date.start);
