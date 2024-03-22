@@ -39,7 +39,7 @@ const GetUserTimeReports = () =>{
   console.log('userID: ' +userId)
 
   if(!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>
+    return <p>Loading data...</p>
   }
     
   const filtered = data.results.filter(item => {

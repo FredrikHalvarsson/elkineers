@@ -37,7 +37,7 @@ const GetAllProjects = () =>{
 const data = GetData('projects');
 
 if(!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>
+    return <p>Loading data...</p>
 }
 return(
     <div className='container' style={{marginLeft: '145px', marginTop: '20px', marginBottom: '100px'}}>
