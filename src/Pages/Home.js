@@ -2,7 +2,7 @@ import React from 'react';
 import GetId from '../services/clerk/GetUser/GetId';
 import elklogo from '../elklogo.png'
 
-export default function Page3 () {
+export default function Page3 ()
     return (
         <div style={{background: "linear-gradient(to left, #006666 23%, #7f9d9d 85%)"}}>
             <main style={{
