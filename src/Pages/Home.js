@@ -1,18 +1,31 @@
 import React from 'react';
 import GetId from '../services/clerk/GetUser/GetId';
+import elklogo from '../elklogo.png'
 
 export default function Page3 () {
     return (
-        <div>
+        <div style={{background: "linear-gradient(to left, #006666 23%, #7f9d9d 85%)"}}>
             <main style={{
                 minHeight: '100vh'
             }}>
-                <p style={{
-                    marginLeft: '350px',
-                    width: '60%',
-                }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <div className="background-image" style={{
+                    marginLeft: '220px',
+                    marginTop: '-100px',
+                    width: 'auto',
+                    height:'500px',
+                    backgroundSize: 'cover',
+                    backgroundImage: "url(https://images.unsplash.com/photo-1498334906313-6e099a1bd87b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000)"
+
+                }}>  
+                </div>
+                <div>
+                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop:'15px',  marginBottom:'0px'}}>
+                    <img src={elklogo} alt="elklogo" style={{height:'120px', alignSelf:'center'}} />
+                    </div>
+                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'60px',marginBottom: '0px', marginTop:'0px' }}>Team Elkineers</p>
+                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'30px', marginTop:'0px', marginBottom: '4px' }}> Where Antlers Meet Ingenuity!</p>
+                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'20px',marginTop: '0px', marginBottom:'0px' }}>Team Elkineers is a resourceful team, inspired by the majestic elk and driven by innovation.</p>
+                </div> 
             </main>
         </div>
     )
