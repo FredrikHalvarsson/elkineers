@@ -11,6 +11,8 @@ import {
   Box,
 } from '@mui/material';
 import { Textarea } from '@mui/joy';
+import GetUserProjectsOnly from '../../../services/notion/getFromNotion/projects/GetUserProjectsOnly';
+
 
 
 export default function ReportTime() {
@@ -57,22 +59,7 @@ export default function ReportTime() {
           }}>
           Select Project
         </InputLabel>
-        <Select
-          sx={{
-            padding: '5px',
-            width: '100%',
-            borderRadius: '0.375rem',
-            '& .MuiInputBase-input': { overflow: 'visible' },
-            '& .MuiSelect-select': { padding: '10px' },
-            fontFamily: 'Inter,system-ui,sans-serif',
-            backgroundColor: 'rgb(255,255,255)',
-            border: '1px solid rgb(115, 96, 123)',
-            color: 'rgb(0, 0, 0)',
-          }}>
-          <OptionItem value={<>Project 1</>}>Project 1</OptionItem>
-          <OptionItem value={<>Project 2</>}>Project 2</OptionItem>
-          <OptionItem value={<>Project 3</>}>Project 3</OptionItem>
-        </Select>
+        <GetUserProjectsOnly />
         <InputLabel
           sx={{
             fontFamily: 'Inter,system-ui,sans-serif',
