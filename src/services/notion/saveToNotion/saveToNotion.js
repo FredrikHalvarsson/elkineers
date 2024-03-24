@@ -1,20 +1,25 @@
 import axios from 'axios';
 
-export default async function saveToNotion(name) {
+export default async function saveToNotion(data, database) {
+    console.log('saveToNotion recieved data: ',data)
     try {
+        if (typeof data === 'string') {
+            data = JSON.parse(data);
+        } else if (typeof data !== 'object') {
+            throw new Error('Invalid data type. Expected object or JSON string.');
+        }
         const response = await axios.post(
-            'http://localhost:3001/notion/api/post/people', 
-            {body: JSON.stringify({ name })},
+            `http://localhost:3001/notion/api/post/${database}`,
+            data,
             {
                 headers: {
-                    'Content-Type': 'application/json',
                     'Notion-Version': '2022-06-28'
                 }
             }
         );
-        alert(response.data.message);
+        console.log(response.data.message); // Use console.log for debugging purposes
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to save data to Notion.');
+        console.error('Failed to save data to Notion.');
     }
 }

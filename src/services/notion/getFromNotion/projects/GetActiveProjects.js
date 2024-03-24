@@ -39,7 +39,7 @@ const GetActiveProjects = () =>{
 const data = GetData('projects');
 
 if(!data || !Array.isArray(data?.results)) {
-return <p>Laddar data eller ingen data att visa...</p>
+return <p>Loading data...</p>
 }
 //Filter data for active projects
 const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))

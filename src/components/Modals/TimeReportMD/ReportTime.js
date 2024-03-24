@@ -9,11 +9,32 @@ import {
   Input,
   Button,
   Box,
+  MenuItem 
 } from '@mui/material';
 import { Textarea } from '@mui/joy';
-
+import GetData from '../../../services/notion/getFromNotion/projects/GetData';
+import GetId from '../../../services/clerk/GetUser/GetId';
 
 export default function ReportTime() {
+  const userId = GetId();
+  const data = GetData('projects');
+  
+
+  if(!data || !Array.isArray(data?.results)) {
+   return <p>Laddar data eller ingen data att visa...</p>
+   }
+   
+   const filter = data.results.filter(item => {
+     const isActive = item.properties.Status.select?.name.includes('Active');
+     if (!isActive) {
+       console.log('Skipped due to status');
+       return false;
+     }
+     const foundUser = item.properties.People.relation.find(item2 => item2.id.includes(userId));
+     console.log('Found User:', foundUser);
+   
+     return foundUser;
+   });
   return (
     <div className='reportTimeContainer'>
     <Box
@@ -56,23 +77,20 @@ export default function ReportTime() {
             fontWeight: '600',
           }}>
           Select Project
-        </InputLabel>
-        <Select
-          sx={{
-            padding: '5px',
-            width: '100%',
-            borderRadius: '0.375rem',
-            '& .MuiInputBase-input': { overflow: 'visible' },
-            '& .MuiSelect-select': { padding: '10px' },
-            fontFamily: 'Inter,system-ui,sans-serif',
-            backgroundColor: 'rgb(255,255,255)',
-            border: '1px solid rgb(115, 96, 123)',
-            color: 'rgb(0, 0, 0)',
-          }}>
-          <OptionItem value={<>Project 1</>}>Project 1</OptionItem>
-          <OptionItem value={<>Project 2</>}>Project 2</OptionItem>
-          <OptionItem value={<>Project 3</>}>Project 3</OptionItem>
-        </Select>
+        </InputLabel>        
+          <Select
+            defaultValue=""
+            sx={{
+              width: '360px', // Adjust as needed
+              height: '50px', // Adjust as needed
+              // Add your other styles here
+            }}>
+            {filter.map((page, index) => (
+              <MenuItem key={index} value={page.properties.Projectname.title[0]?.plain_text ?? ' - '}>
+                {page.properties.Projectname.title[0]?.plain_text ?? ' - '}
+              </MenuItem>
+            ))}
+          </Select>
         <InputLabel
           sx={{
             fontFamily: 'Inter,system-ui,sans-serif',

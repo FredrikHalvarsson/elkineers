@@ -39,7 +39,7 @@ export default function GetTimereports () {
   console.log('data: '+data)
 
   if(!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>
+    return <p>Loading data...</p>
   }
   const sorted = data.results.sort((a, b) => {
       const dateA = new Date(a.properties.Date.date.start);

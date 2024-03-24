@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import {
@@ -10,8 +9,6 @@ import {
     TableRow,
     Paper
   } from '@mui/material';
-
-import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from '../projects/GetData';
 import GetId from '../../../clerk/GetUser/GetId';
 
@@ -42,7 +39,7 @@ const GetUserTimeReports = () =>{
   console.log('userID: ' +userId)
 
   if(!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>
+    return <p>Loading data...</p>
   }
     
   const filtered = data.results.filter(item => {
