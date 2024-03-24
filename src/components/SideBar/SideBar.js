@@ -30,7 +30,7 @@ const Sidebar = () => {
                 width: drawerWidth,
                 flexShrink: 0,
                 '& .MuiDrawer-paper': {
-                    width: drawerWidth,
+                    width: 240,
                     boxSizing: 'border-box',
                     backgroundColor: 'rgba(127, 157, 157)',
                     color: '#fff',
@@ -40,18 +40,25 @@ const Sidebar = () => {
           anchor="left"
         >
           <Toolbar />
-          <List>
-            {SidebarItems.map((item) => (
-              <ListItem key={item.id}>
-              <ListItemButton onClick={() => navigate(item.route)}>
-              <ListItemIcon>
-                    {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.label} />
-              </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+          <Divider style={{borderTop: '1px solid rgba(255, 255, 255, 0.5)'}}/>
+          <List sx={{ '& .MuiListItem-root': { borderBottom: '1px solid rgba(255, 255, 255, 0.5)',
+                      padding: '11px' }  }}>
+      {SidebarItems.map((item) => (
+        <ListItem key={item.id} disablePadding>
+          <ListItemButton onClick={() => navigate(item.route)} style={{
+            transition: 'background-color 0.3s',
+            '&:hover': {
+              backgroundColor: 'gray',
+            }
+          }}>
+            <ListItemIcon>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText primary={item.label} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
         </Drawer>
         </ThemeProvider>
     )

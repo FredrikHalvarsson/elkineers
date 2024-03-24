@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header
         style={{
-            backgroundColor: 'teal',
+            backgroundColor: ' #008B8B',
             color: 'white',
             textAlign: 'center',
             marginBottom: '100px',

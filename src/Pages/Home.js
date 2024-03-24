@@ -1,13 +1,17 @@
 import React from 'react';
 import GetId from '../services/clerk/GetUser/GetId';
 import elklogo from '../elklogo.png'
+import './home.css';
 
-export default function Page3 ()
+export default function Home () {
     return (
         <div style={{background: "linear-gradient(to left, #006666 23%, #7f9d9d 85%)"}}>
-            <main style={{
-                minHeight: '100vh'
+
+            <div style={{
+                minHeight: '100vh',
+                marginLeft: '50%',
             }}>
+
                 <div className="background-image" style={{
                     marginLeft: '220px',
                     marginTop: '-100px',
@@ -26,7 +30,7 @@ export default function Page3 ()
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'30px', marginTop:'0px', marginBottom: '4px' }}> Where Antlers Meet Ingenuity!</p>
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'20px',marginTop: '0px', marginBottom:'0px' }}>Team Elkineers is a resourceful team, inspired by the majestic elk and driven by innovation.</p>
                 </div> 
-            </main>
+            </div>
         </div>
     )
 }
