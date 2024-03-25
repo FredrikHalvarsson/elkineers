@@ -14,7 +14,7 @@ const Header = () => {
             flexDirection: 'row'
             }}>
             <div></div>{/*Empty div to center h1*/}
-            <h1>ElkApp</h1>
+            <h1 style={{color: 'rgb(255,221,60)'}}>ElkApp</h1>
             <clerk style={{
               margin: '15px'
               }}>

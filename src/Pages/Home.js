@@ -2,7 +2,7 @@ import React from 'react';
 import GetId from '../services/clerk/GetUser/GetId';
 import elklogo from '../elklogo.png'
 
-export default function Page3 ()
+export default function Page3 () {
     return (
         <div style={{background: "linear-gradient(to left, #006666 23%, #7f9d9d 85%)"}}>
             <main style={{
@@ -19,7 +19,7 @@ export default function Page3 ()
                 }}>  
                 </div>
                 <div>
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop:'15px',  marginBottom:'0px'}}>
+                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop:'-75px',  marginBottom:'0px'}}>
                     <img src={elklogo} alt="elklogo" style={{height:'120px', alignSelf:'center'}} />
                     </div>
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'60px',marginBottom: '0px', marginTop:'0px' }}>Team Elkineers</p>
