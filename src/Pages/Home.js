@@ -13,12 +13,13 @@ export default function Home () {
 
                 <div className="background-image" style={{
                     marginLeft: '220px',
-                    marginTop: '-100px',
                     width: 'auto',
                     height:'500px',
                     backgroundSize: 'cover',
+                    backgroundPositionY:'30%',
+                    backgroundOrigin:'border-box',
+                    backgroundPosition: 'center',
                     backgroundImage: "url(https://images.unsplash.com/photo-1498334906313-6e099a1bd87b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000)"
-
                 }}>  
                 </div>
                 <div>
