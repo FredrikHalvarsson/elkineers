@@ -14,7 +14,8 @@ export default function Timereports() {
         <div style={{
             minHeight: '100vh',
             marginLeft: '250px',
-            marginRight: '25px', }}>
+            marginRight: '25px',
+            marginTop: '100px' }}>
             
             <Stack sx={{ alignItems: 'center', justifyContent: 'center', }} spacing="10px" direction="row" marginTop="-50px">
                 <PendingActionsOutlinedIcon sx={{fontSize: 50 }} />
