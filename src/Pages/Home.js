@@ -12,8 +12,6 @@ export default function Home () {
             }}>
 
                 <div className="background-image" style={{
-                    marginLeft: '220px',
-                    marginTop: '-100px',
                     width: 'auto',
                     height:'500px',
                     backgroundSize: 'cover',

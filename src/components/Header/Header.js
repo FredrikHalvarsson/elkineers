@@ -8,7 +8,6 @@ const Header = () => {
             backgroundColor: ' #008B8B',
             color: 'white',
             textAlign: 'center',
-            marginBottom: '100px',
             display: 'flex',
             justifyContent: 'space-between',
             flexDirection: 'row'
