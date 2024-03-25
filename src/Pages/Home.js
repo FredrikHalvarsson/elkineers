@@ -6,13 +6,10 @@ import './home.css';
 export default function Home () {
     return (
         <div style={{background: "linear-gradient(to left, #006666 23%, #7f9d9d 85%)"}}>
-
             <div style={{
                 minHeight: '100vh',
             }}>
-
                 <div className="background-image" style={{
-                    marginLeft: '220px',
                     width: 'auto',
                     height:'500px',
                     backgroundSize: 'cover',

@@ -13,7 +13,7 @@ export default function Projects() {
     return (
         <div style={{
             minHeight: '100vh',
-            marginLeft: '250px',
+            marginLeft: '45px',
             marginRight: '25px',
             marginTop: '100px' 
         }}>
