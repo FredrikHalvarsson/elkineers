@@ -9,7 +9,6 @@ export default function Home () {
 
             <div style={{
                 minHeight: '100vh',
-                marginLeft: '50%',
             }}>
 
                 <div className="background-image" style={{
