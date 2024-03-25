@@ -23,7 +23,7 @@ export default function Home () {
                 }}>  
                 </div>
                 <div>
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop:'15px',  marginBottom:'0px'}}>
+                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop:'-75px',  marginBottom:'0px'}}>
                     <img src={elklogo} alt="elklogo" style={{height:'120px', alignSelf:'center'}} />
                     </div>
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'60px',marginBottom: '0px', marginTop:'0px' }}>Team Elkineers</p>
