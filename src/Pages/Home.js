@@ -9,12 +9,9 @@ export default function Home () {
 
             <div style={{
                 minHeight: '100vh',
-                marginLeft: '50%',
             }}>
 
                 <div className="background-image" style={{
-                    marginLeft: '220px',
-                    marginTop: '-100px',
                     width: 'auto',
                     height:'500px',
                     backgroundSize: 'cover',

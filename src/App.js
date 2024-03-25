@@ -14,27 +14,25 @@ import Header from './components/Header/Header.js';
 export default function App() {
   return (
     <Router>
-      <div>
-      <Header/>
-      <aside>
-        <SideBar />
-      </aside>
-      <main>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="projects" element={<Projects/>} />
-        <Route path="time-reports" element={<Timereports/>} />
-        <Route path="page4" element={<Page4/>} />
-        <Route path="page-5" element={<Page5/>} />
-        <Route path="page5copy" element={<Page5/>} />
-      </Routes>
-      </main>
-      <Footer/>
+      <div className='router-container'>
+        <aside>
+          <SideBar />
+        </aside>
+        <div className='main-content'>
+        <Header/>
+        <main>
+          <Routes>
+            <Route path="elkineers" element={<Home/>} />
+            <Route path="projects" element={<Projects/>} />
+            <Route path="time-reports" element={<Timereports/>} />
+            <Route path="page4" element={<Page4/>} />
+            <Route path="page-5" element={<Page5/>} />
+            <Route path="page5copy" element={<Page5/>} />
+          </Routes>
+        </main>
+        <Footer/>
+        </div>
       </div>
     </Router>
   );
 }
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-//Testing git push
-

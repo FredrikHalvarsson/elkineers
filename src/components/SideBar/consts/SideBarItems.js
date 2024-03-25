@@ -12,7 +12,7 @@ export const SidebarItems = [
         id: 0,
         icon: <HouseIcon />,
         label: 'Home',
-        route: '/',
+        route: 'elkineers',
     },
     {
         id: 1,
