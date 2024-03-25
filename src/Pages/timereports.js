@@ -13,16 +13,15 @@ export default function Timereports() {
     return (
         <div style={{
             minHeight: '100vh',
-            marginLeft: '250px',
+            marginLeft: '45px',
             marginRight: '25px',
             marginTop: '100px' }}>
-            
             <Stack sx={{ alignItems: 'center', justifyContent: 'center', }} spacing="10px" direction="row" marginTop="-50px">
                 <PendingActionsOutlinedIcon sx={{fontSize: 50 }} />
                 <Typography
-                variant="h3"
-                sx={{ ' @media(max-width:479px)': { fontSize: '14px' } }}>
-                Time Reports
+                    variant="h3"
+                    sx={{ ' @media(max-width:479px)': { fontSize: '14px' } }}>
+                    Time Reports
                 </Typography>
             </Stack>
             <Tabs selectionFollowsFocus aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'smoke', border: 'solid 1px',borderColor: 'lightgray', borderRadius: '13px' }}>
