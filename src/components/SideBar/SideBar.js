@@ -1,4 +1,3 @@
-import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -7,12 +6,15 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { SidebarItems } from './consts/SideBarItems';
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Divider } from '@mui/material';
+import { useState } from 'react';
 
-const Sidebar = () => {
+function Sidebar () {
 
+    const [activePage, setActivePage] = useState('');
+    const activePageColor = 'rgb(255,221,60)';
     const navigate = useNavigate();
     const drawerWidth = 220;
     const theme = createTheme({
@@ -22,8 +24,12 @@ const Sidebar = () => {
       },
     });
 
+    const handleItemClick = (route) => {
+      setActivePage(route);
+      navigate(route);
+  };
+
     return (
-     
         <ThemeProvider theme={theme}>
         <Drawer
             sx={{
@@ -45,16 +51,22 @@ const Sidebar = () => {
                       padding: '11px' }  }}>
       {SidebarItems.map((item) => (
         <ListItem key={item.id} disablePadding>
-          <ListItemButton onClick={() => navigate(item.route)} style={{
-            transition: 'background-color 0.3s',
-            '&:hover': {
-              backgroundColor: 'gray',
-            }
+          <ListItemButton 
+          onClick={() => handleItemClick(item.route)} style={{
+            transition: 'background-color 0.5s',
+              '&:hover': {
+                backgroundColor: 'gray',
+              },
           }}>
             <ListItemIcon>
               {item.icon}
             </ListItemIcon>
-            <ListItemText primary={item.label} />
+            <ListItemText
+                  primary={item.label}
+                  style={{ 
+                    color: item.route === activePage ? activePageColor : 'inherit',
+                  }}
+                />
           </ListItemButton>
         </ListItem>
       ))}
@@ -62,6 +74,5 @@ const Sidebar = () => {
         </Drawer>
         </ThemeProvider>
     )
-
 }
 export default Sidebar;
