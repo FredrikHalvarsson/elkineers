@@ -25,7 +25,8 @@ export default function Home () {
                     </div>
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'60px',marginBottom: '0px', marginTop:'0px' }}>Team Elkineers</p>
                     <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'30px', marginTop:'0px', marginBottom: '4px' }}> Where Antlers Meet Ingenuity!</p>
-                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'20px',marginTop: '0px', marginBottom:'0px' }}>Team Elkineers is a resourceful team, inspired by the majestic elk and driven by innovation.</p>
+                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'20px',marginTop: '0px', marginBottom:'3px' }}>Team Elkineers is a resourceful team, inspired by the majestic elk and driven by innovation.</p>
+                    <p style={{textAlign:'center', color:'white', fontFamily:"'Courier New', monospace", fontSize:'20px',marginTop: '0px', marginBottom:'0px' }}>Our mission? To tackle challenges with the same determination as an elk navigating through dense forests.</p>                
                 </div> 
             </div>
         </div>
