@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default async function saveToNotion(data, database) {
+    
     console.log('saveToNotion recieved data: ',data)
     try {
         if (typeof data === 'string') {
