@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -39,7 +40,7 @@ const GetActiveProjects = () =>{
 const data = GetData('projects');
 
 if(!data || !Array.isArray(data?.results)) {
-return <p>Loading data...</p>
+return <p><Loading/></p>
 }
 //Filter data for active projects
 const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))
