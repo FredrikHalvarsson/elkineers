@@ -4,6 +4,7 @@ import './timereports.css';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import GetData from '../projects/GetData';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -39,7 +40,7 @@ export default function GetTimereports () {
   console.log('data: '+data)
 
   if(!data || !Array.isArray(data?.results)) {
-    return <p>Loading data...</p>
+    return <p><Loading /></p>
   }
   const sorted = data.results.sort((a, b) => {
       const dateA = new Date(a.properties.Date.date.start);

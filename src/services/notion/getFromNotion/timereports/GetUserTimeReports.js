@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -39,7 +40,7 @@ const GetUserTimeReports = () =>{
   console.log('userID: ' +userId)
 
   if(!data || !Array.isArray(data?.results)) {
-    return <p>Loading data...</p>
+    return <p><Loading/></p>
   }
     
   const filtered = data.results.filter(item => {

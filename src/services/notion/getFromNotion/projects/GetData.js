@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import Loading from '../../../../components/Loading/Loading';
 
 const GetData = (database) =>{ 
  
@@ -28,7 +29,7 @@ const GetData = (database) =>{
     }, []);
     
     if (loading) {
-      return <p>Laddar data...</p>;
+      return <p><Loading/></p>;
     }
     if (error || !Array.isArray(data?.results)) {
       return <p>Ett fel uppstod vid hämtning av data från Notion.</p>;

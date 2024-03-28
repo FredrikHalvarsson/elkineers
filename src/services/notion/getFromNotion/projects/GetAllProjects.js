@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 import GetData from './GetData';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -37,7 +38,7 @@ const GetAllProjects = () =>{
 const data = GetData('projects');
 
 if(!data || !Array.isArray(data?.results)) {
-    return <p>Loading data...</p>
+    return <p><Loading/></p>
 }
 return(
     <div className='container' style={{marginLeft: '145px', marginTop: '20px', marginBottom: '100px'}}>
