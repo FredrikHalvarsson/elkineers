@@ -156,6 +156,10 @@ const ReportTime = () => {
             Create new TimeReport
           </Typography>
         </Stack>
+        {selectedProject 
+  ? `Selected Project: ${filter.find(page => page.id === selectedProject)?.properties.Projectname.title[0]?.plain_text ?? ''}` 
+  : 'Your New Placeholder Text Here'
+}
         <Stack sx={{ alignItems: 'flex-start', width: '100%' }} spacing="10px">
           
           <InputLabel
@@ -180,6 +184,7 @@ const ReportTime = () => {
               const newSelectedItemId = event.target.value;
               console.log('Selected Item ID:', newSelectedItemId);
               setSelectedItemId(newSelectedItemId); 
+              setSelectedProject(newSelectedItemId);
               // Update the state variable
               const selectedItem = document.getElementById(newSelectedItemId);
               if (selectedItem) {
