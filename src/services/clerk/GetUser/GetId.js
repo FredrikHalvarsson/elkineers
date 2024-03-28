@@ -10,7 +10,7 @@ function GetId() {
         const fetchData = async () => {
             try {
                 const payload = {};
-                const response = await axios.get(`http://localhost:3001/notion/api/get/people`, payload);
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/notion/api/get/people`, payload);
                 console.log("Response Data:", response.data);
                 const person = response.data.results.find(item => 
                     item.properties.Email.email.includes(user.userEmail)

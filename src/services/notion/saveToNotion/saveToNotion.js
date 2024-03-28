@@ -10,7 +10,7 @@ export default async function saveToNotion(data, database) {
             throw new Error('Invalid data type. Expected object or JSON string.');
         }
         const response = await axios.post(
-            `http://localhost:3001/notion/api/post/${database}`,
+            `${process.env.REACT_APP_SERVER_URL}/notion/api/post/${database}`,
             data,
             {
                 headers: {
