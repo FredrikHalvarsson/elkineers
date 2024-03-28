@@ -3,6 +3,7 @@ import './timereports.css';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import GetData from '../projects/GetData';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -52,8 +53,8 @@ export default function GetTimereports () {
   const data = GetData('timereports');
   console.log('data:', data);
 
-  if (!data || !Array.isArray(data?.results)) {
-    return <p>Loading data...</p>;
+  if(!data || !Array.isArray(data?.results)) {
+    return <p><Loading /></p>
   }
 
   // Filter data based on selected date range

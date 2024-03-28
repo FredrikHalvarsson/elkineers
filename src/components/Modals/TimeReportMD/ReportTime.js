@@ -13,6 +13,7 @@ import { Textarea } from '@mui/joy';
 import GetData from '../../../services/notion/getFromNotion/projects/GetData';
 import GetId from '../../../services/clerk/GetUser/GetId';
 import saveToNotion from '../../../services/notion/saveToNotion/saveToNotion';
+import Loading from '../../Loading/Loading';
 const { format } = require('date-fns');
 
 const generateHours = () => {
@@ -105,7 +106,7 @@ const ReportTime = () => {
   
 
   if (!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>
+    return <p><Loading/></p>
   }
 
   const filter = data.results.filter(item => {
@@ -180,6 +181,7 @@ const ReportTime = () => {
               const newSelectedItemId = event.target.value;
               console.log('Selected Item ID:', newSelectedItemId);
               setSelectedItemId(newSelectedItemId); 
+              setSelectedProject(newSelectedItemId);
               // Update the state variable
               const selectedItem = document.getElementById(newSelectedItemId);
               if (selectedItem) {

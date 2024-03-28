@@ -3,6 +3,7 @@ import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
+import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
     TableBody,
@@ -41,7 +42,7 @@ const GetUserProjects = () =>{
   const data = GetData('projects');
 
   if(!data || !Array.isArray(data?.results)) {
-  return <p>Loading data...</p>
+  return <p><Loading/></p>
   }
   const filter = data.results.filter(item => {
     const isActive = item.properties.Status.select?.name.includes('Active');
