@@ -157,10 +157,6 @@ const ReportTime = () => {
             Create new TimeReport
           </Typography>
         </Stack>
-        {selectedProject 
-  ? `Selected Project: ${filter.find(page => page.id === selectedProject)?.properties.Projectname.title[0]?.plain_text ?? ''}` 
-  : 'Your New Placeholder Text Here'
-}
         <Stack sx={{ alignItems: 'flex-start', width: '100%' }} spacing="10px">
           
           <InputLabel
