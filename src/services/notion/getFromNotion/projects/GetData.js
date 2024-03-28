@@ -11,7 +11,7 @@ const GetData = (database) =>{
     const fetchDataFromNotion = ()=>{
         const payload = {
         };
-        axios.get(`http://localhost:3001/notion/api/get/${database}`, payload)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/notion/api/get/${database}`, payload)
             .then(response => {
                 setData(response.data);
                 setLoading(false); 
