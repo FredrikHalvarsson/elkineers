@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import './timereports.css';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -13,6 +12,7 @@ import {
     TableRow,
     Paper
   } from '@mui/material';
+  import WeekPicker from '../../../../components/Modals/WeekPickerMD/WeekPicker';
 
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -35,47 +35,73 @@ import {
   }));
 
 export default function GetTimereports () {
-  //get data from timereports database
+  const [startDateFormatted, setStartDateFormatted] = useState('');
+  const [endDateFormatted, setEndDateFormatted] = useState('');
+
+  const handleDateChange = (startDate, endDate) => {
+    setStartDateFormatted(startDate);
+    setEndDateFormatted(endDate);
+  };
+
+  const handleClearFilter = () => {
+    // Clear the filter by resetting the date range states
+    setStartDateFormatted('');
+    setEndDateFormatted('');
+  };
+
+  // Get data from timereports database
   const data = GetData('timereports');
-  console.log('data: '+data)
+  console.log('data:', data);
 
   if(!data || !Array.isArray(data?.results)) {
     return <p><Loading /></p>
   }
-  const sorted = data.results.sort((a, b) => {
-      const dateA = new Date(a.properties.Date.date.start);
-      const dateB = new Date(b.properties.Date.date.start);
-      return dateB - dateA;
-    })
+
+  // Filter data based on selected date range
+  const filteredData = data.results.filter(page => {
+    if (!startDateFormatted || !endDateFormatted) return true; // Return true if no date range is selected
+    const pageDate = new Date(page.properties.Date.date.start);
+    return pageDate >= new Date(startDateFormatted) && pageDate <= new Date(endDateFormatted);
+  });
+
+  // Sort filtered data by date
+  const sortedData = filteredData.sort((a, b) => {
+    const dateA = new Date(a.properties.Date.date.start);
+    const dateB = new Date(b.properties.Date.date.start);
+    return dateB - dateA;
+  });
   return (
         
-    <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 400 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Person</StyledTableCell>
-              <StyledTableCell >Project</StyledTableCell>
-              <StyledTableCell >#Hours</StyledTableCell>
-              <StyledTableCell >Date</StyledTableCell> 
-              <StyledTableCell >Note</StyledTableCell> 
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sorted.map((page, index) => {
-            return (
-              <StyledTableRow key={index}>
-                <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
-                <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
-                <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
-                <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
-                <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
-              </StyledTableRow>
-              );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>          
+    <div className='container' style={{display: 'flex', flexDirection: 'column', marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
+      <WeekPicker onChange={handleDateChange} onClearFilter={handleClearFilter} />
+      <div>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Person</StyledTableCell>
+                <StyledTableCell >Project</StyledTableCell>
+                <StyledTableCell >#Hours</StyledTableCell>
+                <StyledTableCell >Date</StyledTableCell> 
+                <StyledTableCell >Note</StyledTableCell> 
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {sortedData.map((page, index) => {
+              return (
+                <StyledTableRow key={index}>
+                  <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
+                  <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
+                  <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
+                  <StyledTableCell>{page.properties.Date.date.start ?? 'No date'}</StyledTableCell>
+                  <StyledTableCell>{page.properties.Note.title[0].plain_text ?? 'No Note'}</StyledTableCell>
+                </StyledTableRow>
+                );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
 );
 }
