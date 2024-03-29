@@ -3,6 +3,7 @@ import './timereports.css';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import GetData from '../projects/GetData';
+import {blueGrey} from '@mui/material/colors';
 import Loading from '../../../../components/Loading/Loading';
 import {
     Table,
@@ -14,7 +15,7 @@ import {
   } from '@mui/material';
   import WeekPicker from '../../../../components/Modals/WeekPickerMD/WeekPicker';
 
-
+  const oddrow = blueGrey[50];
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -27,7 +28,7 @@ import {
   
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: oddrow,
     },
     '&:last-child td, &:last-child th': {
       border: 0,
@@ -89,7 +90,7 @@ export default function GetTimereports () {
             <TableBody>
               {sortedData.map((page, index) => {
               return (
-                <StyledTableRow key={index}>
+                <StyledTableRow hover key={index}>
                   <StyledTableCell>{page.properties.RollupName.rollup.array[0].title[0].plain_text ?? 'No Title'}</StyledTableCell>
                   <StyledTableCell>{page.properties.RollupProject.rollup.array[0].title[0].plain_text ?? 'No Project'}</StyledTableCell>
                   <StyledTableCell>{page.properties.Hours.number ?? 'No hours'}</StyledTableCell>
