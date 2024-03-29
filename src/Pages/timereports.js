@@ -8,7 +8,7 @@ import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlin
 import GetUserTimeReports from '../services/notion/getFromNotion/timereports/GetUserTimeReports';
 import GetTimereports from '../services/notion/getFromNotion/timereports/GetTimereports';
 import ReportTime from '../components/Modals/TimeReportMD/ReportTime';
-import Loading from '../components/Loading/Loading';
+
 
 export default function Timereports() {
     return (
@@ -41,7 +41,6 @@ export default function Timereports() {
                     },}}>
                     <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>All</Tab>
                     <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>My</Tab>
-                    <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>By date</Tab>
                     <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>Create</Tab>
                 </TabList>
                 <TabPanel value={0}>       
@@ -55,11 +54,6 @@ export default function Timereports() {
                     </div>
                 </TabPanel>
                 <TabPanel value={2}>
-                    <div>
-                        <Loading/>
-                    </div>
-                </TabPanel>
-                <TabPanel value={3}>
                     <div>
                         <ReportTime />
                     </div>

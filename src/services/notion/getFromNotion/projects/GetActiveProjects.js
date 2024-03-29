@@ -3,6 +3,7 @@ import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import Loading from '../../../../components/Loading/Loading';
+import {blueGrey} from '@mui/material/colors';
 import {
     Table,
     TableBody,
@@ -15,6 +16,7 @@ import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from './GetData';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
+  const oddrow = blueGrey[50];
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -27,7 +29,7 @@ import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
   
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: oddrow,
     },
     '&:last-child td, &:last-child th': {
       border: 0,
@@ -63,7 +65,7 @@ return(
             <TableBody>
             {filter.map((page, index)=>{
               return (
-                <StyledTableRow key={index}>
+                <StyledTableRow hover key={index}>
                               <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
                               <StyledTableCell>{page.properties.Status.select?.name ?? ' - '}</StyledTableCell>
                               <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
