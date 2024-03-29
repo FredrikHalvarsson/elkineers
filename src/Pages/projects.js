@@ -2,6 +2,7 @@ import * as React from 'react';
 import GetAllProjects from '../services/notion/getFromNotion/projects/GetAllProjects';
 import GetActiveProjects from '../services/notion/getFromNotion/projects/GetActiveProjects';
 import GetUserProjects from '../services/notion/getFromNotion/projects/GetUserProjects';
+import ProjectSummary from '../services/notion/getFromNotion/projects/ProjectSummary'
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import { TabPanel } from '@mui/joy';
@@ -43,6 +44,7 @@ export default function Projects() {
             <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>All </Tab>
             <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>Active </Tab>
             <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>My </Tab>
+            <Tab disableIndicator sx={{borderRadius: '4px 4px 0px 0px'}}>Summary </Tab>
         </TabList>
         <TabPanel value={0} >       
             <div>
@@ -57,6 +59,10 @@ export default function Projects() {
         <TabPanel value={2}>
             <div>
                 <GetUserProjects />
+            </div>
+        </TabPanel><TabPanel value={3}>
+            <div>
+                <ProjectSummary />
             </div>
         </TabPanel>
         </Tabs>
