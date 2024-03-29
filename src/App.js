@@ -13,9 +13,7 @@ export default function App() {
   return (
     <Router>
       <div className='router-container'>
-        <aside>
           <SideBar />
-        </aside>
         <div className='main-content'>
         <Header/>
         <main>

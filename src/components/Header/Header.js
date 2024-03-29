@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from '../../services/clerk/Login/Login'
+import Login from '../../services/clerk/Login/Login';
 
 const Header = () => {
   return (
     <header
-        style={{
+          style={{
             backgroundColor: ' #008B8B',
             color: 'white',
             textAlign: 'center',
