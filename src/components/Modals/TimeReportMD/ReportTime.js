@@ -172,7 +172,7 @@ const ReportTime = () => {
           </Typography>
         </Stack>
         <Stack sx={{ alignItems: 'flex-start', width: '100%' }} spacing="10px">
-          <InputLabel
+          <InputLabel htmlFor="uncontrolled-native"
             sx={{
               fontFamily: 'Inter,system-ui,sans-serif',
               fontSize: '15px',
@@ -185,8 +185,7 @@ const ReportTime = () => {
           <Select
             value={selectedProject}
             sx={{
-              width: '360px', // Adjust as needed
-              height: '50px', // Adjust as needed
+              width: '100%', // Adjust as needed
             }}
             onChange={(event) => {
               const newSelectedItemId = event.target.value;

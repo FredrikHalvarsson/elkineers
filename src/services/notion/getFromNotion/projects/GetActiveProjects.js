@@ -15,6 +15,7 @@ import {
 import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from './GetData';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
+import './projects.css'
 
   const oddrow = blueGrey[50];
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -47,10 +48,9 @@ return <p><Loading/></p>
 //Filter data for active projects
 const filter = data.results.filter(item => item.properties.Status.select?.name.includes('Active'))
 return(
-    <div className='container' style={{marginTop: '20px', marginLeft: '145px', marginBottom: '100px'}}>
-        <h1> </h1>
+    <div className='container' style={{marginTop: '20px', marginBottom: '100px'}}>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <Table aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell>Project</StyledTableCell>

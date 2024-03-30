@@ -9,20 +9,16 @@ import { TabPanel } from '@mui/joy';
 import Tab, { tabClasses } from '@mui/joy/Tab';
 import { Typography, Stack,} from '@mui/material';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import './home.css';
 
 export default function Projects() {
     return (
-        <div style={{
-            minHeight: '100vh',
-            marginLeft: '45px',
-            marginRight: '25px',
-            marginTop: '100px' 
-        }}>
+        <div className='tabsContainer'>
         <Stack sx={{ alignItems: 'center', justifyContent: 'center', }} spacing="10px" direction="row" marginTop="-50px">
             <AssignmentOutlinedIcon sx={{fontSize: 50 }} />
             <Typography
             variant="h3"
-            sx={{ ' @media(max-width:479px)': { fontSize: '14px' } }}>
+            sx={{ ' @media(max-width:479px)': { fontSize: '30px' } }}>
             Projects
             </Typography>
         </Stack>
