@@ -10,11 +10,22 @@ import {
   MenuItem 
 } from '@mui/material';
 import { Textarea } from '@mui/joy';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
 import GetData from '../../../services/notion/getFromNotion/projects/GetData';
 import GetId from '../../../services/clerk/GetUser/GetId';
 import saveToNotion from '../../../services/notion/saveToNotion/saveToNotion';
 import Loading from '../../Loading/Loading';
+
 const { format } = require('date-fns');
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const generateHours = () => {
   const hours = [];
@@ -25,11 +36,11 @@ const generateHours = () => {
   return hours;
 };
 
-
 const ReportTime = () => {
 
   const userId = GetId();
   const data = GetData('projects');
+  const [open, setOpen] = useState(false);
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
@@ -37,7 +48,7 @@ const ReportTime = () => {
   const [selectedItemId, setSelectedItemId] = useState(null);
   
   let date = format(new Date(), 'yyy.MM.dd');
-    date = new Date().toISOString(date).split('T', 1)[0];
+  date = new Date().toISOString(date).split('T', 1)[0];
 
   const handleStartTimeChange = (event) => {
     setStartTime(event.target.value); 
@@ -63,7 +74,7 @@ const ReportTime = () => {
     endDateTime.setMinutes(0);
     const timeDifferenceInMs = endDateTime - startDateTime;
     const timeDifferenceInHours = timeDifferenceInMs / (1000 * 60 * 60);
-    
+
     console.log('Selected Project:', selectedProject);
     console.log('Time difference:', timeDifferenceInHours, 'hours');
     console.log('Entered Text:', enteredText);
@@ -101,9 +112,12 @@ const ReportTime = () => {
   };
   console.log('Data:', data);
   saveToNotion(data, 'timereports');
- 
+  setOpen (true);
+  }; 
+
+  const handleClose = () => {
+    setOpen(false);
   };
-  
 
   if (!data || !Array.isArray(data?.results)) {
     return <p><Loading/></p>
@@ -158,7 +172,6 @@ const ReportTime = () => {
           </Typography>
         </Stack>
         <Stack sx={{ alignItems: 'flex-start', width: '100%' }} spacing="10px">
-          
           <InputLabel
             sx={{
               fontFamily: 'Inter,system-ui,sans-serif',
@@ -169,10 +182,8 @@ const ReportTime = () => {
           >
             Select Project
           </InputLabel >  
-
           <Select
             value={selectedProject}
-            
             sx={{
               width: '360px', // Adjust as needed
               height: '50px', // Adjust as needed
@@ -189,15 +200,12 @@ const ReportTime = () => {
               }
             }}
           >
-            
             {filter.map((page, index) => (
               <MenuItem key={index} value={page.id} id={`menuItem-${page.id}`}>
                 {page.properties.Projectname.title[0]?.plain_text ?? ' - '}
               </MenuItem>
             ))}
           </Select>
-          
-
           <InputLabel
             sx={{
               fontFamily: 'Inter,system-ui,sans-serif',
@@ -219,7 +227,6 @@ const ReportTime = () => {
               </MenuItem>
             ))}
           </Select>
-
           <InputLabel
             sx={{
               fontFamily: 'Inter,system-ui,sans-serif',
@@ -241,7 +248,6 @@ const ReportTime = () => {
               </MenuItem>
             ))}
           </Select>
-        
           <Textarea 
             onChange={handleTextChange}
             maxRows={6}
@@ -259,10 +265,8 @@ const ReportTime = () => {
             }}
             placeholder="Enter some text..."
           ></Textarea>
-
           <Button
             onClick={handleButtonClick}
-            disableElevation
             variant="contained"
             sx={{
               '&:hover': { backgroundColor: 'rgb(27, 92, 82)' },
@@ -278,10 +282,26 @@ const ReportTime = () => {
           >
             Submit
           </Button>
+          <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle>{"Success"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+              Your timereport has successfully been sent to Notion. 
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Close</Button>
+            </DialogActions>
+          </Dialog>
         </Stack>
       </Box>
     </div>
   );
-  
 }
 export default ReportTime;
