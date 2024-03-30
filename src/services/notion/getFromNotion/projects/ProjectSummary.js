@@ -13,6 +13,7 @@ import {
     Paper
   } from '@mui/material';
 import WeekPicker from '../../../../components/Modals/WeekPickerMD/WeekPicker';
+import './projects.css';
 
 const oddrow = blueGrey[50];
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -80,7 +81,7 @@ export default function GetTimereports () {
       <WeekPicker onChange={handleDateChange} onClearFilter={handleClearFilter} />
       <div>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <Table aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell>Project</StyledTableCell>

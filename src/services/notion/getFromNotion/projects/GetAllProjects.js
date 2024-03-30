@@ -6,6 +6,7 @@ import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 import GetData from './GetData';
 import {blueGrey} from '@mui/material/colors';
 import Loading from '../../../../components/Loading/Loading';
+import './projects.css';
 import {
     Table,
     TableBody,
@@ -43,9 +44,9 @@ if(!data || !Array.isArray(data?.results)) {
     return <p><Loading/></p>
 }
 return(
-    <div className='container' style={{marginLeft: '145px', marginTop: '20px', marginBottom: '100px'}}>
+    <div className='container' style={{ marginTop: '20px', marginBottom: '100px'}}>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <Table aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell>Project</StyledTableCell>

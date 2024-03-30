@@ -16,6 +16,7 @@ import {
 import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from './GetData';
 import GetId from '../../../clerk/GetUser/GetId';
+import './projects.css';
 
     const oddrow = blueGrey[50];
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -58,10 +59,10 @@ const GetUserProjects = () =>{
     return foundUser;
   });
   return(
-    <div className='container' style={{marginTop: '20px', marginLeft: '145px', marginBottom: '100px'}}>
+    <div className='container' style={{marginTop: '20px', marginBottom: '100px'}}>
         <h1></h1>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
+          <Table aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell>Project</StyledTableCell>
@@ -82,7 +83,7 @@ const GetUserProjects = () =>{
                             <StyledTableCell>{page.properties["Hours left"].formula?.number ?? ' - '}</StyledTableCell> 
                             <StyledTableCell><ProgressBar hours={page.properties.Hours.number} workedHours={page.properties["Worked hours"].rollup?.number}/></StyledTableCell>
                             <StyledTableCell>{page.properties.Timespan.date?.start ?? ' - '} - {page.properties.Timespan.date?.end ?? ' - '}</StyledTableCell> 
-                            </StyledTableRow>
+                </StyledTableRow>
                 );
                 })}
             </TableBody>

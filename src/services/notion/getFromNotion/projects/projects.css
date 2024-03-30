@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+@media screen and (max-width: 800px){
+    .container{
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+    }
+}

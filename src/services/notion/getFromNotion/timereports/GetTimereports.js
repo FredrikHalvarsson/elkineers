@@ -73,12 +73,12 @@ export default function GetTimereports () {
   });
   return (
         
-    <div className='container' style={{display: 'flex', flexDirection: 'column', marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
+    <div className='container' style={{display: 'flex', flexDirection: 'column', marginTop: '20px', marginBottom: '100px'}}>
       <WeekPicker onChange={handleDateChange} onClearFilter={handleClearFilter} />
       <div>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="customized table">
-            <TableHead>
+        <TableContainer component={Paper} >
+          <Table aria-label="customized table" >
+            <TableHead >
               <TableRow>
                 <StyledTableCell>Person</StyledTableCell>
                 <StyledTableCell >Project</StyledTableCell>

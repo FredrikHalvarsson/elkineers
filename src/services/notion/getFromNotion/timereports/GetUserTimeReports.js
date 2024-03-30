@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import {blueGrey} from '@mui/material/colors';
 import Loading from '../../../../components/Loading/Loading';
+import './timereports.css'
 import {
     Table,
     TableBody,
@@ -61,9 +62,9 @@ const GetUserTimeReports = () =>{
   console.log('sorted: '+sorted)
 
   return(
-    <div className='container' style={{marginTop: '20px', marginBottom: '100px', marginLeft: '10%'}}>
+    <div className='container' style={{marginTop: '20px', marginBottom: '100px'}}>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 400 }} aria-label="customized table">
+        <Table aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Person</StyledTableCell>
