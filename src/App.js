@@ -18,6 +18,7 @@ export default function App() {
         <Header/>
         <main>
           <Routes>
+            <Route path="" element={<Home/>} />
             <Route path="elkineers" element={<Home/>} />
             <Route path="projects" element={<Projects/>} />
             <Route path="time-reports" element={<Timereports/>} />
