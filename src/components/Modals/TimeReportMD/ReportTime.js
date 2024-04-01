@@ -35,6 +35,7 @@ const ReportTime = () => {
   const [selectedProject, setSelectedProject] = useState('');
   const [enteredText, setEnteredText] = useState('');
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [buttonText, setButtonText] = useState('Submit');
   
   let date = format(new Date(), 'yyy.MM.dd');
     date = new Date().toISOString(date).split('T', 1)[0];
@@ -101,6 +102,7 @@ const ReportTime = () => {
   };
   console.log('Data:', data);
   saveToNotion(data, 'timereports');
+  setButtonText('Sent to Notion');
  
   };
   
@@ -276,7 +278,8 @@ const ReportTime = () => {
               justifyContent: 'center',
             }}
           >
-            Submit
+            {buttonText}
+            
           </Button>
         </Stack>
       </Box>
