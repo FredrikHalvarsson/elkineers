@@ -9,7 +9,7 @@ export const SidebarItems = [
         id: 0,
         icon: <HouseIcon />,
         label: 'Home',
-        route: 'elkineers',
+        route: '/',
     },
     {
         id: 1,
