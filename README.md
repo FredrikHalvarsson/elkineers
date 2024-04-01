@@ -29,8 +29,6 @@ Pages 📄
 
     projects.js: This is the projects page of your application. It imports several services from the notion directory, including GetAllProjects, GetActiveProjects, GetUserProjects, and ProjectSummary. These services are likely used to fetch and display project-related data. The page also uses the Tabs component from @mui/joy to organize the content.
 
-    people.js: This page is not shown in the provided workspace information, but based on its name, it likely displays information about people involved in the projects.
-
     timereports.js: This is the time reports page of your application. It imports several services from the notion directory, including GetUserTimeReports and GetTimereports, and a component ReportTime from Modals/TimeReportMD. These are likely used to fetch, display, and report time-related data. The page also uses the Tabs component from @mui/joy to organize the content.
     
     The saveToNotion function is a function in your codebase that is responsible for saving data to Notion.
