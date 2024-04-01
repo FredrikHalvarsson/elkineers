@@ -3,6 +3,7 @@ import GetId from '../../clerk/GetUser/GetId';
 import saveToNotion from './saveToNotion';
 const { format } = require('date-fns');
 
+//This is currently not in use, it has been incorporated into ReportTime.js
 export default function PostTimeReports(hours, project, note) {
     const userId = GetId();
     const date = format(new Date(), 'yyy.MM.dd').toString();
