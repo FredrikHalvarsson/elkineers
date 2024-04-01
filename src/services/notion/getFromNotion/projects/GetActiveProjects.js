@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import Loading from '../../../../components/Loading/Loading';
@@ -12,7 +11,6 @@ import {
     TableRow,
     Paper
   } from '@mui/material';
-import GetUser from '../../../clerk/GetUser/GetUser';
 import GetData from './GetData';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 import './projects.css'

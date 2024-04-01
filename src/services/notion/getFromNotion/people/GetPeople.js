@@ -1,11 +1,10 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
-import GetData from './GetData';
+import GetData from '../projects/GetData';
 import {blueGrey} from '@mui/material/colors';
 import Loading from '../../../../components/Loading/Loading';
-import './projects.css';
+import '../projects/projects.css';
 import {
     Table,
     TableBody,
@@ -36,8 +35,8 @@ import {
   }));
 
     
-const GetAllProjects = () =>{ 
-const data = GetData('projects');
+const GetPeople = () =>{ 
+const data = GetData('people');
 
 if(!data || !Array.isArray(data?.results)) {
     return <p><Loading/></p>
@@ -48,26 +47,16 @@ return(
           <Table aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>Project</StyledTableCell>
-                <StyledTableCell >Status</StyledTableCell>
-                <StyledTableCell >#Hours</StyledTableCell>
-                <StyledTableCell >Worked hours</StyledTableCell> 
-                <StyledTableCell >Hours left</StyledTableCell>
-                <StyledTableCell>Progress bar</StyledTableCell>
-                <StyledTableCell >Timespan</StyledTableCell>  
+                <StyledTableCell >Name</StyledTableCell>
+                <StyledTableCell >Worked hours</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.results.map((page, index) => {
               return (
                 <StyledTableRow hover key={index}>
-                  <StyledTableCell>{page.properties.Projectname.title[0]?.plain_text ?? ' - '}</StyledTableCell>
-                  <StyledTableCell>{page.properties.Status.select?.name ?? ' - '}</StyledTableCell>
-                  <StyledTableCell>{page.properties.Hours.number ?? ' - '}</StyledTableCell>
-                  <StyledTableCell>{page.properties["Worked hours"].rollup?.number ?? ' - '}</StyledTableCell>  
-                    <StyledTableCell>{page.properties["Hours left"].formula?.number ?? ' - '}</StyledTableCell> 
-                    <StyledTableCell><ProgressBar hours={page.properties.Hours.number} workedHours={page.properties["Worked hours"].rollup?.number}/></StyledTableCell>
-                  <StyledTableCell>{page.properties.Timespan.date?.start ?? ' - '} - {page.properties.Timespan.date?.end ?? ' - '}</StyledTableCell> 
+                  <StyledTableCell>{page.properties.Name.title[0]?.plain_text ?? ' - '}</StyledTableCell>
+                  <StyledTableCell>{page.properties["Total hours"].rollup.number ?? ' - '}</StyledTableCell>
                 </StyledTableRow>
                 );
                 })}
@@ -78,4 +67,4 @@ return(
   );
 };
 
-export default GetAllProjects;
+export default GetPeople;
