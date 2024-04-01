@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+Asana/Board: https://app.asana.com/0/1206692558656343/1206692578528751
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TimeReport Management Web Application 🕒📝
 
-## Available Scripts
+Welcome to our TimeReport Management Web Application! This application is designed to streamline the process of managing and submitting time reports. Built using React for the frontend and Express for the backend, this application provides a user-friendly interface for managing time reports efficiently.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Features ✨
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    User Authentication: Users can easily log in using their Notion account via Clerk authentication, ensuring secure access to the application.
+    Time Report Management: Users can create and view time reports based on their projects and tasks.
+    Submission: Once time reports are completed, users can submit them directly through the application.
+    Dashboard: The dashboard provides an overview of pending and submitted time reports, along with project/task summaries.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Technologies Used 🛠️
 
-### `npm run build`
+    React: A JavaScript library for building user interfaces.
+    Express: A web application framework for Node.js.
+    Notion API: Used for storing and managing time report data.
+    Clerk: Provides authentication services via Notion.
+    Node.js: A JavaScript runtime for building scalable network applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pages 📄
+    
+    Home.js: This is the home page of your application. It imports a service from clerk/GetUser/GetId and an image from elklogo.png. The page displays some text and images to the user.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    projects.js: This is the projects page of your application. It imports several services from the notion directory, including GetAllProjects, GetActiveProjects, GetUserProjects, and ProjectSummary. These services are likely used to fetch and display project-related data. The page also uses the Tabs component from @mui/joy to organize the content.
 
-### `npm run eject`
+    people.js: This page is not shown in the provided workspace information, but based on its name, it likely displays information about people involved in the projects.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    timereports.js: This is the time reports page of your application. It imports several services from the notion directory, including GetUserTimeReports and GetTimereports, and a component ReportTime from Modals/TimeReportMD. These are likely used to fetch, display, and report time-related data. The page also uses the Tabs component from @mui/joy to organize the content.
+    
+    The saveToNotion function is a function in your codebase that is responsible for saving data to Notion.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    The postTimeReports.js file is a service or utility in the codebase that is responsible for posting time report data to a specific endpoint, probably an API.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://github.com/FredrikHalvarsson/elkineers/assets/141586150/166e6dac-e1df-4b4f-a91f-e734fac7deef
