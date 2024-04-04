@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ab4a1846.css",
-    "main.js": "/static/js/main.f0b8662f.js",
-    "static/js/453.219d3743.chunk.js": "/static/js/453.219d3743.chunk.js",
-    "static/media/elklogo.png": "/static/media/elklogo.f3252ac0f56fb14048cd.png",
-    "index.html": "/index.html",
-    "main.ab4a1846.css.map": "/static/css/main.ab4a1846.css.map",
-    "main.f0b8662f.js.map": "/static/js/main.f0b8662f.js.map",
-    "453.219d3743.chunk.js.map": "/static/js/453.219d3743.chunk.js.map"
+    "main.css": "/elkineers/static/css/main.ab4a1846.css",
+    "main.js": "/elkineers/static/js/main.da065db8.js",
+    "static/js/453.219d3743.chunk.js": "/elkineers/static/js/453.219d3743.chunk.js",
+    "static/media/elklogo.png": "/elkineers/static/media/elklogo.f3252ac0f56fb14048cd.png",
+    "index.html": "/elkineers/index.html",
+    "main.ab4a1846.css.map": "/elkineers/static/css/main.ab4a1846.css.map",
+    "main.da065db8.js.map": "/elkineers/static/js/main.da065db8.js.map",
+    "453.219d3743.chunk.js.map": "/elkineers/static/js/453.219d3743.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab4a1846.css",
-    "static/js/main.f0b8662f.js"
+    "static/js/main.da065db8.js"
   ]
 }
